@@ -29,7 +29,7 @@ with open("C:\\python\\sale.csv",'a',newline="") as s:
 3. Creating Dataframe with Changed column names.
 
 
-df=pd.header=['Product_NO','Product_Name','January','February','March','April','May',' June']
+df=pd.header=['Product_No','Product_Name','January','February','March','April','May',' June']
 print(df)
 
 
@@ -37,7 +37,7 @@ print(df)
 
 
 header=['Product_No','Product_Name','January','February','March','April','May',' June']
-df=pd.read_csv("C:\\python\\product_sale.csv")
+df=pd.read_csv("C:\\python\\sale.csv")
 
 row=df.values.tolist()
 
@@ -55,7 +55,7 @@ print(df)
 5. Adding 2 row at the end
 
 
-new_rows = {'Product No': '', 'Product Name': '', 'January': '', 'February': '', 'March': '', 'April': '', 'May': '', 'June': ''}
+new = {'Product No': '', 'Product Name': '', 'January': '', 'February': '', 'March': '', 'April': '', 'May': '', 'June': ''}
 for i in range(2):
     for column in rows:
         rows[column] = input(f"Enter value for {column}: ")
@@ -67,9 +67,9 @@ df.reset_index(drop=True, inplace=True)
 
 
 header=['Product_No', 'Product_Name', 'January', 'February', 'March', 'April', 'May', 'June','Total','Average']
-df.loc[2.5] = [15, 'Cables',12,7,4,8,15,20,66,11]
+df.loc[3.5] = [15, 'Cables',12,7,4,8,15,20,66,11]
 df = df.sort_index().reset_index(drop=True)
-df.loc[3.5] = [16, 'Headphones',5,9,21,10,2,14,61,10.16666667]
+df.loc[4.5] = [16, 'Headphones',5,9,21,10,2,14,61,10.16666667]
 df = df.sort_index().reset_index(drop=True)
 
 
