@@ -1,0 +1,126 @@
+1. creating a CSV file.
+
+import pandas as pd
+header=['Prod_No','Prod_Name','Jan','Feb','Mar','Apr','May','Jun']
+with open("C:\\python\\sale.csv","w",newline='') as csvfile:
+    data=csv.writer(csvfile)
+    data.writerow(header)
+
+2. add 12 records using user input.
+
+l=[]
+
+with open("C:\\python\\sale.csv",'a',newline="") as s:
+    Write=csv. writer(s)
+    for i in range(12):
+        prod_no = input("Enter Product Number: ")
+        prod_name = input("Enter Product Name: ")
+        Jan = int(input("Enter Sales of Jan: "))
+        Feb = int(input("Enter Sales of Feb: "))
+        Mar = int(input("Enter Sales of Mar: "))
+        Apr = int(input("Enter Sales of Apr: "))
+        May = int(input("Enter Sales of May: "))
+        Jun = int(input("Enter Sales of Jun: "))
+        data=[prod_no,prod_name,Jan,Feb,Mar,Apr,May,Jun]
+        l.append(data)
+    Write.writerows(l)
+
+
+3. Creating Dataframe with Changed column names.
+
+
+df=pd.header=['Product_NO','Product_Name','January','February','March','April','May',' June']
+print(df)
+
+
+4. Adding column 'Total Sell'.
+
+
+header=['Product_No','Product_Name','January','February','March','April','May',' June']
+df=pd.read_csv("C:\\python\\product_sale.csv")
+
+row=df.values.tolist()
+
+total=[sum(i[2::]) for i in row]
+
+Avg=[int(sum(i[2::])/6) for i in row]
+
+df = pd.DataFrame(row,columns=header)
+df['Total']=total
+df['Average']=Avg
+
+print(df)
+
+
+5. Adding 2 row at the end
+
+
+new_rows = {'Product No': '', 'Product Name': '', 'January': '', 'February': '', 'March': '', 'April': '', 'May': '', 'June': ''}
+for i in range(2):
+    for column in rows:
+        rows[column] = input(f"Enter value for {column}: ")
+df = df.append(rows, ignore_index=True)
+df.reset_index(drop=True, inplace=True)
+
+
+6. Adding 2 row after 3rd row
+
+
+header=['Product_No', 'Product_Name', 'January', 'February', 'March', 'April', 'May', 'June','Total','Average']
+df.loc[2.5] = [15, 'Cables',12,7,4,8,15,20,66,11]
+df = df.sort_index().reset_index(drop=True)
+df.loc[3.5] = [16, 'Headphones',5,9,21,10,2,14,61,10.16666667]
+df = df.sort_index().reset_index(drop=True)
+
+
+7. Print first 5 Row.
+
+
+print(df.head())
+
+
+8. Print last 5 Row.
+
+
+print(df.tail())
+
+9. Print Row 6-10.
+
+
+print(df.iloc[6:10]
+
+
+10. Print only Product Name.
+
+
+print(df["Product_Name"])
+
+
+11. Sales of January with Product_No and Product_Name.
+
+
+print(df[["Product_No","Product_Name","January"]])
+
+
+12. Only those Product ID And Name where January Sells > 5000 and February Sell > 8000.
+
+df["January"] = pd.df["January"]
+df["February"] = pd.df["February"]
+
+df1 = df[(df["January"] > 5000)] && (df["February"] > 8000)]
+
+print(df1[["Product_No","Product_Name"]])
+
+
+13. Record in sorting Order of  Product Name.
+
+print(df.sort_values()by="Product_Name")
+
+
+14. Only odd index number columns.
+
+print(df.iloc[1::2])
+
+15. Alternate Rows only.
+
+print(df.iloc[::2])
